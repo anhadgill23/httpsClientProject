@@ -1,11 +1,12 @@
 var https = require('https');
 
-function getAndPrintHTML() {
-  var buffer = '';
-  var requestOptions = {
+ var requestOptions = {
     host: 'sytantris.github.io',
     path: '/http-examples/step2.html'
   };
+
+function getAndPrintHTML() {
+  var buffer = '';
 
 
   https.get(requestOptions, function(response) {
@@ -17,11 +18,10 @@ function getAndPrintHTML() {
       buffer += data;
     });
 
-    console.log(buffer);
-
     // the callback is invoked when all of the data has been received
     // (the `end` of the stream)
     response.on('end', function() {
+      console.log(buffer);
       console.log('Response stream complete.');
     });
   })
