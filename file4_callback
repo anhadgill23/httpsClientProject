@@ -1,8 +1,10 @@
 var https = require('https');
 
-function getAndPrintHTML(options) {
+function getAndPrintHTML(options, callback) {
 
-  var buffer = '';
+  /* Add your code here */
+
+var buffer = '';
 
   https.get(options, function(response) {
 
@@ -16,17 +18,20 @@ function getAndPrintHTML(options) {
     // the callback is invoked when all of the data has been received
     // (the `end` of the stream)
     response.on('end', function() {
-      console.log(buffer);
+      console.log(printHTML());
       console.log('Response stream complete.');
     });
   })
-};
+
+getAndPrintHTML();
+
+}
+
+function printHTML (html) {
+  console.log(html);
+}
 
 var requestOptions = {
   host: 'sytantris.github.io',
-  path: '/http-examples/step3.html'
+  path: '/http-examples/step4.html'
 };
-
-getAndPrintHTML(requestOptions);
-
-//which is an object that contains values for the host and path, exactly like requestOptions
