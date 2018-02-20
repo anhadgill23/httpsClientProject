@@ -1,6 +1,6 @@
 var https = require('https');
 
-function getAndPrintHTML(options, callback) {
+function getHTML(options, callback) {
 
   /* Add your code here */
 
@@ -15,7 +15,7 @@ function getAndPrintHTML(options, callback) {
     });
 
     response.on('end', function() {
-      callback(buffer);                         //// is this correct? I need to print buffer
+      callback(buffer);
       console.log('Response stream complete.');
     });
   })
@@ -32,5 +32,5 @@ function printHTML(html) {
   console.log(html);
 }
 
-getAndPrintHTML(requestOptions, printHTML);  ///is this correct?
+getHTML(requestOptions, printHTML);
 
